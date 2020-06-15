@@ -25,6 +25,6 @@ Zheng Liu
 - Siberian laptev sea (L; polynyas)
 - PMEL saildrone region (S; in-situ)
 
-<img src="roi.png" width="30%" align=left>
+<img src="roi.png" width="50%" align=left>
 
 
