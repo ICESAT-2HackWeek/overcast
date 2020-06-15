@@ -21,8 +21,10 @@ Zheng Liu
 - ICESat-2 [ATL03](https://nsidc.org/data/atl03) 
 
 ### Region of Interest
-- Eastern Beaufort sea (leads)
-- Siberian laptev sea (polynyas)
+- Eastern Beaufort sea (B; leads)
+- Siberian laptev sea (L; polynyas)
+- PMEL saildrone region (S; in-situ)
 
+<img src="roi.png" width="50%" align=left>
 
 
