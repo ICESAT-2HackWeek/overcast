@@ -4,8 +4,8 @@
 ## Collaborators
 - Kyle Duncan
 - Zheng Liu
-- Michel Tsamados
 - Axel Schweiger
+- Michel Tsamados
 - Dongxiao Zhang
 
 ### Team Lead 

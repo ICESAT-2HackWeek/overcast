@@ -24,6 +24,8 @@ wheels/
 MANIFEST
 
 
+.order_restart
+.download_id
 
 # Jupyter Notebook
 .ipynb_checkpoints
