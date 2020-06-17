@@ -35,12 +35,12 @@ The huge heat and moisture fluxes from the leads to the atmosphere have been can
 
 Some Statistics: 
 probability of clouds over leads vs clouds over ice.
-cloud thickness, etc based on type of lead classification
-cloud optical depth distribution over leads
+cloud thickness, etc based on type of lead classification.
+cloud optical depth distribution over leads.
 
     
     
 ### Technical Goals
 Develop a merged-multi-dataset product. 
-Trying to build tools for later use with a small use case
-Exploring relationships, regression, etc
+Trying to build tools for later use with a small use case.
+Exploring relationships, regression, etc.
