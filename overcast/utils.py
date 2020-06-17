@@ -56,7 +56,21 @@ def query_rgt(rgt,cyc,dat_df):
     new_df = dat_df[ (dat_df['rgt']==rgt) & (dat_df['cycle_number']==cyc) ]
     return new_df.filename.values
 
-def box_sel(dat,bbox):
+def box_sel(dat,bbox,to_360=False):
+    '''
+    Select dat using bbox info
+    
+    Parameters:
+    ----------
+    dat: xarray Dataset or Pandas DataFrame 
+    bbox: bounding box to select data 
+    to_360: boolean, if True, the lons will be converted to 0-360 range first. 
+    
+    Return: boolean array? to select data
+    '''
     lonmin,latmin,lonmax,latmax = bbox
+    if to_360:
+        lonmin = lonmin%360
+        lonmax = lonmax%360
     region = (dat.lats>latmin)&(dat.lats<latmax)&(dat.lons>lonmin)&(dat.lons<lonmax)
     return region
