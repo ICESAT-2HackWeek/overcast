@@ -7,6 +7,8 @@
 - Axel Schweiger
 - Michel Tsamados
 - Dongxiao Zhang
+- Molly Wieringa
+- Sunny Sun-Mack
 
 ### Team Lead 
 Zheng Liu
