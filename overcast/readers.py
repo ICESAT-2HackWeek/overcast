@@ -83,33 +83,34 @@ def getATL09(f,beam,add_attr=False):
     
     # --- add coordinates
     vn = 'delta_time'
-    ds['dt'] = (['dt'],f[hr+vn][:])
-    vn = 'ds_layers'
-    ds['nlay'] = (['nlay'],f[hr+vn][:])
-    vn = 'ds_va_bin_h'
-    ds['zbin'] = (['zbin'],f[hr+vn][:])
-    # --- add 1D data
-    for vn in ['latitude','longitude','prof_dist_x','prof_dist_y',
-               'cloud_flag_asr','cloud_fold_flag',
-               'column_od_asr','column_od_asr_qf','layer_flag','msw_flag',
-               'bsnow_h','bsnow_od','bsnow_con','bsnow_psc',]:
-        ovn = vn
-        if vn in ['latitude','longitude']: ovn = vn[:3]+'s'
-        ds[ovn] = (['dt'],f[hr+vn][:])
-    # --- add 2D cloud layer data
-    for vn in ['layer_bot','layer_top','layer_attr','layer_con','layer_ib']:
-        ds[vn] = (['dt','nlay'],f[hr+vn][:])
-    # --- add 2D data in lidar vertical bins
-    for vn in ['cab_prof']:
-        ds[vn] = (['dt','nbin'],f[hr+vn][:])
-    # --- add attributes
-    if add_attr:
-        for ovn in ds.data_vars:
-            vn = ovn
-            if ovn=='lats':vn = 'latitude' 
-            if ovn=='lons':vn = 'longitude' 
-            for key,vattr in f[hr+vn].attrs.items():
-                ds[ovn].attrs[key] = vattr
+    if vn in f[hr].keys():
+        ds['dt'] = (['dt'],f[hr+vn][:])
+        vn = 'ds_layers'
+        ds['nlay'] = (['nlay'],f[hr+vn][:])
+        vn = 'ds_va_bin_h'
+        ds['zbin'] = (['zbin'],f[hr+vn][:])
+        # --- add 1D data
+        for vn in ['latitude','longitude','prof_dist_x','prof_dist_y',
+                   'cloud_flag_asr','cloud_fold_flag',
+                   'column_od_asr','column_od_asr_qf','layer_flag','msw_flag',
+                   'bsnow_h','bsnow_od','bsnow_con','bsnow_psc',]:
+            ovn = vn
+            if vn in ['latitude','longitude']: ovn = vn[:3]+'s'
+            ds[ovn] = (['dt'],f[hr+vn][:])
+        # --- add 2D cloud layer data
+        for vn in ['layer_bot','layer_top','layer_attr','layer_con','layer_ib']:
+            ds[vn] = (['dt','nlay'],f[hr+vn][:])
+        # --- add 2D data in lidar vertical bins
+        for vn in ['cab_prof']:
+            ds[vn] = (['dt','nbin'],f[hr+vn][:])
+        # --- add attributes
+        if add_attr:
+            for ovn in ds.data_vars:
+                vn = ovn
+                if ovn=='lats':vn = 'latitude' 
+                if ovn=='lons':vn = 'longitude' 
+                for key,vattr in f[hr+vn].attrs.items():
+                    ds[ovn].attrs[key] = vattr
     
     return ds
 
