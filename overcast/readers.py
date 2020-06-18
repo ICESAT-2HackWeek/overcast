@@ -74,7 +74,7 @@ def getATL07(f,beam):
     return df07
 
 
-def getATL09(f,beam):
+def getATL09(f,beam,add_attr=False):
     '''
     Extract high_rate data from ATL09
     '''
@@ -103,12 +103,13 @@ def getATL09(f,beam):
     for vn in ['cab_prof']:
         ds[vn] = (['dt','nbin'],f[hr+vn][:])
     # --- add attributes
-    for ovn in ds.data_vars:
-        vn = ovn
-        if ovn=='lats':vn = 'latitude' 
-        if ovn=='lons':vn = 'longitude' 
-        for key,vattr in f[hr+vn].attrs.items():
-            ds[ovn].attrs[key] = vattr
+    if add_attr:
+        for ovn in ds.data_vars:
+            vn = ovn
+            if ovn=='lats':vn = 'latitude' 
+            if ovn=='lons':vn = 'longitude' 
+            for key,vattr in f[hr+vn].attrs.items():
+                ds[ovn].attrs[key] = vattr
     
     return ds
 
